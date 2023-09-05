@@ -1,20 +1,23 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import React from 'react';
+import { Text, StyleSheet } from 'react-native';
 
-export default function App() {
+const SimpleText = () => {
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <Text style={styles.text} numberOfLines={2} onPress={() => alert('Hello')}>
+      Esto es un ejemplo de texto en react native
+    </Text>
   );
-}
+};
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
+  text: {
+    marginTop:150,
+    fontSize: 16,
+    color: 'blue',
+    textAlign: 'center',
+    margin: 10,
+    fontFamily: 'Arial',
   },
 });
+
+export default SimpleText;
