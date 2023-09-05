@@ -1,27 +1,27 @@
 import React from 'react';
-import { View, Image, StyleSheet } from 'react-native';
+import {Text, ImageBackground, StyleSheet } from 'react-native';
 
-const App = () => {
-  return (
-    <View style={styles.container}>
-      <Image
-        source={require('./foto.avif')} // Reemplaza 'tu_imagen.jpg' con la ruta de tu imagen
-        style={styles.imagen}
-      />
-    </View>
-  );
-};
+const App = () => (
+  <ImageBackground
+    source={require('./foto.avif')}
+    style={styles.background}
+    resizeMode="cover"
+  >
+    <Text style={styles.text}>Hola mundo!</Text>
+  </ImageBackground>
+);
 
 const styles = StyleSheet.create({
-  container: {
+  background: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
   },
-  imagen: {
-    width: 200, // Ancho de la imagen
-    height: 200, // Altura de la imagen
-    resizeMode: 'cover', // Modo de ajuste de la imagen (puedes cambiarlo según tus necesidades)
+  text: {
+    color: 'white',
+    fontSize: 42,
+    lineHeight: 84,
+    fontWeight: 'bold',
+    textAlign: 'center',
   },
 });
 
