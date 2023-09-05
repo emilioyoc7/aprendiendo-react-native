@@ -1,23 +1,38 @@
 import React from 'react';
-import { Text, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 
-const SimpleText = () => {
+const App = () => {
+  const handlePress = () => {
+    alert('¡Hola Emilio!');
+  };
+
   return (
-    <Text style={styles.text} numberOfLines={2} onPress={() => alert('Hello')}>
-      Esto es un ejemplo de texto en react native
-    </Text>
+    <View style={styles.container}>
+      <TouchableOpacity
+        style={styles.button}
+        onPress={handlePress}
+      >
+        <Text style={styles.buttonText}>presiona este boton</Text>
+      </TouchableOpacity>
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
-  text: {
-    marginTop:150,
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  button: {
+    backgroundColor: 'blue',
+    padding: 10,
+    borderRadius: 5,
+  },
+  buttonText: {
+    color: 'white',
     fontSize: 16,
-    color: 'blue',
-    textAlign: 'center',
-    margin: 10,
-    fontFamily: 'Arial',
   },
 });
 
-export default SimpleText;
+export default App;
