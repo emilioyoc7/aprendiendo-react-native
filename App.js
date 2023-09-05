@@ -1,19 +1,13 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
 const App = () => {
-  const handlePress = () => {
-    alert('¡Hola Emilio!');
-  };
-
   return (
     <View style={styles.container}>
-      <TouchableOpacity
-        style={styles.button}
-        onPress={handlePress}
-      >
-        <Text style={styles.buttonText}>presiona este boton</Text>
-      </TouchableOpacity>
+      <Image
+        source={require('./foto.avif')} // Reemplaza 'tu_imagen.jpg' con la ruta de tu imagen
+        style={styles.imagen}
+      />
     </View>
   );
 };
@@ -24,14 +18,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
   },
-  button: {
-    backgroundColor: 'blue',
-    padding: 10,
-    borderRadius: 5,
-  },
-  buttonText: {
-    color: 'white',
-    fontSize: 16,
+  imagen: {
+    width: 200, // Ancho de la imagen
+    height: 200, // Altura de la imagen
+    resizeMode: 'cover', // Modo de ajuste de la imagen (puedes cambiarlo según tus necesidades)
   },
 });
 
