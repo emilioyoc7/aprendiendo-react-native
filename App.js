@@ -1,28 +1,23 @@
-import React from 'react';
-import {Text, ImageBackground, StyleSheet } from 'react-native';
+import React, {useState} from 'react';
+import {View, Switch, Text} from 'react-native';
 
-const App = () => (
-  <ImageBackground
-    source={require('./foto.avif')}
-    style={styles.background}
-    resizeMode="cover"
-  >
-    <Text style={styles.text}>Hola mundo!</Text>
-  </ImageBackground>
-);
+const App = () => {
+  const [isEnabled, setIsEnabled] = useState(false);
 
-const styles = StyleSheet.create({
-  background: {
-    flex: 1,
-    justifyContent: 'center',
-  },
-  text: {
-    color: 'white',
-    fontSize: 42,
-    lineHeight: 84,
-    fontWeight: 'bold',
-    textAlign: 'center',
-  },
-});
+  const toggleSwitch = () => setIsEnabled(previousState => !previousState);
+
+  return (
+    <View>
+      <Text style={{marginTop:100}}>Enable Feature:</Text>
+      <Switch
+      style={{marginLeft:15}}
+      trackColor={{ false: "#767577", true: "#81b0ff" }}
+      thumbColor={isEnabled ? "#f5dd4b" : "#f4f3f4"}
+      onValueChange={toggleSwitch}
+      value={isEnabled}
+      />
+    </View>
+  );
+};
 
 export default App;
