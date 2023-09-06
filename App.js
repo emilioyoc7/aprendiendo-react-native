@@ -1,43 +1,35 @@
-import React, {useState} from 'react';
-import {Modal, Text, TouchableHighlight, View, Alert} from 'react-native';
+import React from 'react';
+import { Pressable, Text, StyleSheet } from 'react-native';
 
-const App = () => {
-  const [modalVisible, setModalVisible] = useState(false);
-
+export default function CustomButton() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Modal
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-        animationType="none"
-        transparent={false}
-        visible={modalVisible}
-        onRequestClose={() => {
-          Alert.alert('Modal has been closed.');
-          setModalVisible(!modalVisible);
-        }}>
-        <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-          <View>
-            <Text>hola, soy un Modal!</Text>
-
-            <TouchableHighlight
-              onPress={() => {
-                setModalVisible(!modalVisible);
-              }}>
-              <Text>borrar Modal</Text>
-            </TouchableHighlight>
-          </View>
-        </View>
-      </Modal>
-
-      <TouchableHighlight
-        style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}
-        onPress={() => {
-          setModalVisible(true);
-        }}>
-        <Text>mostrar Modal</Text>
-      </TouchableHighlight>
-    </View>
+    <Pressable
+      onPress={() => console.log('Pressed!')}
+      style={({ pressed }) => [
+        styles.button,
+        pressed ? styles.pressedButton : styles.normalButton,
+      ]}
+    >
+      <Text style={styles.buttonText}>Presiona</Text>
+    </Pressable>
   );
-};
+}
 
-export default App;
+const styles = StyleSheet.create({
+  button: {
+    padding: 10,
+    
+  },
+  normalButton: {
+    backgroundColor: 'blue',
+    marginTop:100
+  },
+  pressedButton: {
+    backgroundColor: 'red',
+    marginTop:100
+  },
+  buttonText: {
+    color: 'white',
+    textAlign: 'center',
+  },
+});
