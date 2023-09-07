@@ -1,35 +1,36 @@
-import React from 'react';
-import { Pressable, Text, StyleSheet } from 'react-native';
+import React, { useState } from 'react';
+import { View, Text } from 'react-native';
+import Navbar from './src/nadvar.jsx';
 
-export default function CustomButton() {
+const App = () => {
+  const [activeTab, setActiveTab] = useState('Home'); 
+  const handleTabChange = (tabName) => {
+    setActiveTab(tabName);
+  };
+
+  
+  const renderContent = () => {
+    if (activeTab === 'Home') {
+      return (
+        <View>
+          <Text>Contenido de la pestaña Home</Text>
+        </View>
+      );
+    } else if (activeTab === 'About') {
+      return (
+        <View>
+          <Text>Contenido de la pestaña About</Text>
+        </View>
+      );
+    }
+  };
+
   return (
-    <Pressable
-      onPress={() => console.log('Pressed!')}
-      style={({ pressed }) => [
-        styles.button,
-        pressed ? styles.pressedButton : styles.normalButton,
-      ]}
-    >
-      <Text style={styles.buttonText}>Presiona</Text>
-    </Pressable>
+    <View style={{marginTop:45, backgroundColor: 'white'}}>
+      <Navbar onTabChange={handleTabChange}/>
+      {renderContent()}
+    </View>
   );
-}
+};
 
-const styles = StyleSheet.create({
-  button: {
-    padding: 10,
-    
-  },
-  normalButton: {
-    backgroundColor: 'blue',
-    marginTop:100
-  },
-  pressedButton: {
-    backgroundColor: 'red',
-    marginTop:100
-  },
-  buttonText: {
-    color: 'white',
-    textAlign: 'center',
-  },
-});
+export default App;
