@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, SafeAreaView } from 'react-native';
 import Navbar from './src/nadvar.jsx';
 
 const App = () => {
@@ -26,10 +26,10 @@ const App = () => {
   };
 
   return (
-    <View style={{marginTop:45, backgroundColor: 'white'}}>
+    <SafeAreaView style={{backgroundColor: 'white'}}>
       <Navbar onTabChange={handleTabChange}/>
       {renderContent()}
-    </View>
+    </SafeAreaView>
   );
 };
 
