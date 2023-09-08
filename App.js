@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 import Navbar from './src/nadvar.jsx';
+import Inicio from './src/inicio.jsx';
+import MyFlatList from './src/about.jsx';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('Home'); 
@@ -13,13 +15,13 @@ const App = () => {
     if (activeTab === 'Home') {
       return (
         <View>
-          <Text>Contenido de la pestaña Home</Text>
+          <Inicio />
         </View>
       );
     } else if (activeTab === 'About') {
       return (
         <View>
-          <Text>Contenido de la pestaña About</Text>
+          <MyFlatList />
         </View>
       );
     }

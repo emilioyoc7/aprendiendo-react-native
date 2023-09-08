@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
 
+
 const Navbar = ({ onTabChange }) => {
     const [activeTab, setActiveTab] = useState('Home');
 
