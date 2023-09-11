@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { View, Text, SafeAreaView } from 'react-native';
 import Navbar from './src/nadvar.jsx';
 import Inicio from './src/inicio.jsx';
-import MyFlatList from './src/about.jsx';
+import MySectionList from './src/about.jsx';
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('Home'); 
@@ -21,7 +21,7 @@ const App = () => {
     } else if (activeTab === 'About') {
       return (
         <View>
-          <MyFlatList />
+          <MySectionList />
         </View>
       );
     }
