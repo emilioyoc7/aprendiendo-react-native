@@ -1,4 +1,4 @@
-import { SectionList, Text } from 'react-native';
+import { SectionList, Text, ScrollView } from 'react-native';
 
 const sections = [
     { title: 'Section 1', data: ['Item 1', 'Item 2', 'Item 3'] },
@@ -10,14 +10,16 @@ const Item = ({ text }) => <Text>{text}</Text>;
 const SectionHeader = ({ title }) => <Text>{title}</Text>;
 
 const MySectionList = () => (
-    <SectionList
-    sections={sections}
-    renderItem={({ item }) => <Item text={item} />}
-    renderSectionHeader={({ section: { title } }) => (
+    <ScrollView>
+        <SectionList
+        sections={sections}
+        renderItem={({ item }) => <Item text={item} />}
+        renderSectionHeader={({ section: { title } }) => (
         <SectionHeader title={title} />
     )}
     keyExtractor={(item, index) => item + index}
     />
+    </ScrollView>
 );
 
 

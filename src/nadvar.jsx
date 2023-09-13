@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TouchableOpacity, StyleSheet} from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet, ScrollView} from 'react-native';
 
 
 const Navbar = ({ onTabChange }) => {
@@ -12,18 +12,20 @@ const Navbar = ({ onTabChange }) => {
 
 return (
     <View style={styles.container}>
-        <TouchableOpacity
-        style={[styles.tab, activeTab === 'Home' && styles.activeTab]}
-        onPress={() => handleTabPress('Home')}
-        >
-        <Text style={styles.tabText}>Home</Text>
-        </TouchableOpacity>
-        <TouchableOpacity
-        style={[styles.tab, activeTab === 'About' && styles.activeTab]}
-        onPress={() => handleTabPress('About')}
-        >
-        <Text style={styles.tabText}>About</Text>
-        </TouchableOpacity>
+        <ScrollView horizontal>
+            <TouchableOpacity
+            style={[styles.tab, activeTab === 'Home' && styles.activeTab]}
+            onPress={() => handleTabPress('Home')}
+            >
+            <Text style={styles.tabText}>Home</Text>
+            </TouchableOpacity>
+            <TouchableOpacity
+            style={[styles.tab, activeTab === 'About' && styles.activeTab]}
+            onPress={() => handleTabPress('About')}
+            >
+            <Text style={styles.tabText}>About</Text>
+            </TouchableOpacity>
+        </ScrollView>
     </View>
     );
 };
