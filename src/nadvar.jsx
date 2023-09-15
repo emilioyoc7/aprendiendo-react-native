@@ -25,6 +25,12 @@ return (
             >
             <Text style={styles.tabText}>About</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+            style={[styles.tab, activeTab === 'info' && styles.activeTab]}
+            onPress={() => handleTabPress('info')}
+            >
+            <Text style={styles.tabText}>info</Text>
+            </TouchableOpacity>
         </ScrollView>
     </View>
     );
@@ -35,8 +41,15 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-around',
         alignItems: 'center',
-        backgroundColor: '#333',
         height: 60,
+        ...Platform.select({
+            ios: {
+                backgroundColor:'red'
+            },
+            android: {
+                backgroundColor:'green'
+            }
+        }),
     },
     tab: {
     padding: 10,

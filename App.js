@@ -3,6 +3,7 @@ import { View, Text, SafeAreaView } from 'react-native';
 import Navbar from './src/nadvar.jsx';
 import Inicio from './src/inicio.jsx';
 import MySectionList from './src/about.jsx';
+import Info from './src/info.jsx'
 
 const App = () => {
   const [activeTab, setActiveTab] = useState('Home'); 
@@ -22,6 +23,13 @@ const App = () => {
       return (
         <View>
           <MySectionList />
+        </View>
+      );
+    }
+    else if (activeTab === 'info') {
+      return (
+        <View>
+          <Info />
         </View>
       );
     }

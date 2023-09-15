@@ -1,5 +1,5 @@
 import React from 'react';
-import {TextInput, StyleSheet, KeyboardAvoidingView, Text, SafeAreaView } from 'react-native';
+import {TextInput, StyleSheet, KeyboardAvoidingView, Text, SafeAreaView, Platform } from 'react-native';
 
 const Inicio = () => {
     return (
